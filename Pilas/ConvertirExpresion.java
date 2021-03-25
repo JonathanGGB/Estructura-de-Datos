@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package clases;
 
 import java.util.List;
 import java.util.Stack;
@@ -47,7 +48,16 @@ public class ConvertirExpresion {
                     } else {
 
                         if (cadena.charAt(i)>='0' & cadena.charAt(i)<='9'){
-                            salida= salida + " " + cadena.charAt(i);
+                            if(i>0){
+                                if(cadena.charAt(i-1)>='0' & cadena.charAt(i-1)<='9' & cadena.charAt(i)>='0' & cadena.charAt(i)<='9'){
+                                        salida= salida + cadena.charAt(i);
+                                    } else {
+                                        salida= salida + " " + cadena.charAt(i);
+                                    }
+                            } else{
+                                salida= salida + " " + cadena.charAt(i);
+                            }
+                            
                         } else {
                             if (cadena.charAt(i)=='+' | cadena.charAt(i)=='-' |  cadena.charAt(i)=='*' |  cadena.charAt(i)=='/'){
                                 if(i>0){
