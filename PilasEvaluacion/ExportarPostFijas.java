@@ -23,7 +23,7 @@ public class ExportarPostFijas {
             String[] salida = resultado.split("\n"); 
             String[] salida2 = evaluacion.split("\n");
             for (int i=0; i<salida.length;i++){
-                newTxt.println(salida[i] + "Resultado: " + salida2[i]);
+                newTxt.println(salida[i] + "Eval: " + salida2[i]);
             }
             } catch (FileNotFoundException fne) {
                 System.out.println(fne.getMessage());

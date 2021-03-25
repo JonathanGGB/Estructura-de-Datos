@@ -28,7 +28,10 @@ public class ConvertirExpresion {
         for(int k=0;k<expresiones.size();k++){
             
             String cadena = (String) expresiones.get(k);
-        
+            
+            if(cadena.charAt(cadena.length()-1)!= ';'){
+                cadena = cadena + ";";
+            }
             for (int i = 0; i < cadena.length(); i++) {
                 if (cadena.charAt(i) == '(') {
                     pilaParentesis.push(cadena.charAt(i));
@@ -41,7 +44,7 @@ public class ConvertirExpresion {
                                 salida = salida + " " + pilaOperadores.pop();
                             }
                         } else{
-                            return "Error de parentesis en expresion " + (k+1);
+                            return "Error de parentesis en expresion " + (k+1) + " ";
                         }
 
                     } else {
@@ -61,7 +64,7 @@ public class ConvertirExpresion {
                             if (cadena.charAt(i)=='+' | cadena.charAt(i)=='-' |  cadena.charAt(i)=='*' |  cadena.charAt(i)=='/'){
                                 if(i>0){
                                     if(cadena.charAt(i-1) == '*' & cadena.charAt(i)== '*'){
-                                        pilaOperadores.push("**");
+                                        pilaOperadores.push("**"); 
                                     } else {
                                         pilaOperadores.push(cadena.charAt(i));
                                     }
@@ -73,7 +76,7 @@ public class ConvertirExpresion {
                                         if(!pilaOperadores.isEmpty()){
                                             salida = salida + " " + pilaOperadores.pop();
                                         }
-                                        salida = salida + ";\n";
+                                        salida = salida + "; \n";
                                     }
                                 }
                             }
