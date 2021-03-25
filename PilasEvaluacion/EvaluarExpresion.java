@@ -19,7 +19,12 @@ public class EvaluarExpresion{
 
         for(int k=0;k<expresiones.size();k++){
             String cadena = (String) expresiones.get(k);
-            salida = salida + engine.eval(cadena) + ";\n";
+            if (salida == null){
+                salida = engine.eval(cadena) + ";\n";
+            }else{
+                salida = salida + engine.eval(cadena) + ";\n";
+            }
+            
             
         }
         return salida;
