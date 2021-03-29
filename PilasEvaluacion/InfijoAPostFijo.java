@@ -14,7 +14,5 @@ public class InfijoAPostFijo {
     
     public static void main(String[] args) throws ScriptException {
        new ExportarPostFijas().exportar(new ConvertirExpresion().validarExpresion(), new EvaluarExpresion().Evaluar());
-       
-
     }
 }

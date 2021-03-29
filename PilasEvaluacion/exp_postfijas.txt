@@ -1,4 +1,4 @@
- 2 3 +; Resultado: 5;
- 2 3 4 + *; Resultado: 14;
- 2 4 + 7 * 3 9 5 - * +; Resultado: 54;
- 22 1 2 2 / + *; Resultado: 23;
+ 2 3 +;Eval: 5;
+ 2 3 4 + *;Eval: 14;
+ 2 4 + 7 * 3 9 5 - * +;Eval: 54;
+ 22 1 * 2 2 / +;Eval: 23;
