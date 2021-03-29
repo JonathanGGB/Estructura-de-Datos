@@ -28,9 +28,9 @@ public class ConvertirExpresion {
         for(int k=0;k<expresiones.size();k++){
             
             String cadena = (String) expresiones.get(k);
-            
-            if(cadena.charAt(cadena.length())!= ';'){
-                cadena = cadena + ";";
+            cadena.replace(" ","");
+            if(cadena.charAt(cadena.length()-1)!= ';'){
+                cadena = cadena + "; ";
             }
             for (int i = 0; i < cadena.length(); i++) {
                 if (cadena.charAt(i) == '(') {
@@ -66,7 +66,17 @@ public class ConvertirExpresion {
                                     if(cadena.charAt(i-1) == '*' & cadena.charAt(i)== '*'){
                                         pilaOperadores.push("**"); 
                                     } else {
-                                        pilaOperadores.push(cadena.charAt(i));
+                                        if((cadena.charAt(i)=='+' |  cadena.charAt(i)=='-') & cadena.charAt(i+2)=='('){
+                                            System.out.println(cadena.charAt(i+2));
+                                            if(!pilaOperadores.isEmpty()){
+                                                if((char)pilaOperadores.peek()=='*' | (char) pilaOperadores.peek()=='/'){
+                                                    salida = salida + " " + pilaOperadores.pop();
+                                                    pilaOperadores.push(cadena.charAt(i));
+                                                } 
+                                            }
+                                        } else {
+                                            pilaOperadores.push(cadena.charAt(i));
+                                        }
                                     }
                                 } 
                             
@@ -76,8 +86,9 @@ public class ConvertirExpresion {
                                         if(!pilaOperadores.isEmpty()){
                                             salida = salida + " " + pilaOperadores.pop();
                                         }
-                                        salida = salida + "; \n";
+                                
                                     }
+                                    salida = salida + ";\n";
                                 }
                             }
                         }
