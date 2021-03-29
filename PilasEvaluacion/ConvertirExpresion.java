@@ -29,7 +29,7 @@ public class ConvertirExpresion {
             
             String cadena = (String) expresiones.get(k);
             
-            if(cadena.charAt(cadena.length()-1)!= ';'){
+            if(cadena.charAt(cadena.length())!= ';'){
                 cadena = cadena + ";";
             }
             for (int i = 0; i < cadena.length(); i++) {
